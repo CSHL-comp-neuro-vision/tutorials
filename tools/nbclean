@@ -2,7 +2,7 @@
 # Use nbconvert to clear output from a notebook programatically
 
 if [ $# -eq 0 ]; then
-    echo "Usage: nbstrip <notebook file>"
+    echo "Usage: nbclean <notebook file>"
 fi
 
 NB=$1
