@@ -1,0 +1,11 @@
+#! /bin/bash
+# Use nbconvert to clear output from a notebook programatically
+
+if [ $# -eq 0 ]; then
+    echo "Usage: nbstrip <notebook file>"
+fi
+
+NB=$1
+
+jupyter nbconvert \
+    --to notebook --inplace --ClearOutputPreprocessor.enabled=True $NB
