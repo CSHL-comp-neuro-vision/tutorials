@@ -6,7 +6,15 @@ These tutorials have been generously donated by various course participants and 
 
 ## Programming language
 
-Currently, the vast majority of these tutorials are in Matlab with some Python tutorials in the `Python` folder in this repo. 
+Currently, the vast majority of these tutorials are in Matlab, but there are some Python tutorials in the `Python` folder in this repo. 
+
+Python tutorials include introductions to:
+* Machine learning (SVM)
+* FFT
+* Signal filtering (low/high pass filtering)
+* Mutual Information...
+
+The rest of the tutorials are in Matlab and are described below. 
 
 ## Where do I start?
 
