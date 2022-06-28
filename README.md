@@ -79,12 +79,12 @@ Much has been learned about vision by studying the visual signals and visual pro
 Organization: Not convinced this mixture of shared/tutorial-specific dependencies makes sense, but that's what I started with. If we stick with this organization, need to review the comments at the top of each script and make sure it matches the current actual dependencies
 
 Tutorials currently giving errors in Matlab 2020:
--pcasvdTutorial
--FourierTutorial
--pyramidTutorial
--stochasticProcessesTutorial
--fMRI_Classification_Tutorial
--choiceProbabiltyTutorial
--Psycho_Tutorial_III_Bootstrapping
+* pcasvdTutorial
+* FourierTutorial
+* pyramidTutorial
+* stochasticProcessesTutorial
+* fMRI_Classification_Tutorial
+* choiceProbabiltyTutorial
+* Psycho_Tutorial_III_Bootstrapping
 
 GLM Tutorial: Pillow needs to look at this and update the guide to describe what it is
