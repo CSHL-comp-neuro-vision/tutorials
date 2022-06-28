@@ -74,3 +74,17 @@ This tutorial works through the 'normalization model of attention' based on the 
 Much has been learned about vision by studying the visual signals and visual processing associated with motion. Consider starting with “motionTutorial”: yhis tutorial presents some concepts for representing and analyzing visual motion, including motion energy and computer vision. Dig in more deeply to a model of how motion is processed in MT (Rust at al., 2006) in “RustMTModel.” For another take, “STCovTutorial” demonstrates how spike-triggered covariance can be used to recover functional models in white-noise experiments.
 
 
+## TODO: 
+
+Organization: Not convinced this mixture of shared/tutorial-specific dependencies makes sense, but that's what I started with. If we stick with this organization, need to review the comments at the top of each script and make sure it matches the current actual dependencies
+
+Tutorials currently giving errors in Matlab 2020:
+-pcasvdTutorial
+-FourierTutorial
+-pyramidTutorial
+-stochasticProcessesTutorial
+-fMRI_Classification_Tutorial
+-choiceProbabiltyTutorial
+-Psycho_Tutorial_III_Bootstrapping
+
+GLM Tutorial: Pillow needs to look at this and update the guide to describe what it is
