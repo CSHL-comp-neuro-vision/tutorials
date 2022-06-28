@@ -12,7 +12,9 @@ Python tutorials include introductions to:
 * Machine learning (SVM)
 * FFT
 * Signal filtering (low/high pass filtering)
-* Mutual Information...
+* Mutual Information
+
+All python tutorials are standalone jupyter notebooks (.ipynb files, which can also be uploaded and run using google colab if you don't have a standalone install on your machine). 
 
 The rest of the tutorials are in Matlab and are described below. 
 
