@@ -6,17 +6,7 @@ These tutorials have been generously donated by various course participants and 
 
 ## Programming language
 
-Currently, the vast majority of these tutorials are in Matlab, but there are some Python tutorials in the `Python` folder in this repo. 
-
-Python tutorials include introductions to:
-* Machine learning (SVM)
-* FFT
-* Signal filtering (low/high pass filtering)
-* Mutual Information
-
-All python tutorials are standalone jupyter notebooks (.ipynb files, which can also be uploaded and run using google colab if you don't have a standalone install on your machine). 
-
-The rest of the tutorials are in Matlab and are described below. 
+Currently, the vast majority of these tutorials are in Matlab, but there are some Python tutorials in the `Python` folder. See the bottom of this page for a summary. 
 
 ## Where do I start?
 
@@ -83,6 +73,14 @@ This tutorial works through the 'normalization model of attention' based on the 
 
 Much has been learned about vision by studying the visual signals and visual processing associated with motion. Consider starting with “motionTutorial”: yhis tutorial presents some concepts for representing and analyzing visual motion, including motion energy and computer vision. Dig in more deeply to a model of how motion is processed in MT (Rust at al., 2006) in “RustMTModel.” For another take, “STCovTutorial” demonstrates how spike-triggered covariance can be used to recover functional models in white-noise experiments.
 
+## Python tutorials include introductions to:
+
+* Machine learning (SVM)
+* FFT
+* Signal filtering (low/high pass filtering)
+* Mutual Information
+
+All python tutorials are standalone jupyter notebooks (.ipynb files, which can also be uploaded and run using google colab if you don't have a standalone install on your machine). 
 
 ## TODO: 
 
