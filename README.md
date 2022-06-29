@@ -80,7 +80,7 @@ Much has been learned about vision by studying the visual signals and visual pro
 * Signal filtering (low/high pass filtering)
 * Mutual Information
 
-All python tutorials are standalone jupyter notebooks (.ipynb files, which can also be uploaded and run using google colab if you don't have a standalone install on your machine). 
+All python tutorials are standalone jupyter notebooks (.ipynb files, which can also be uploaded and run using google colab if you don't have an install on your machine). 
 
 ## TODO: 
 
