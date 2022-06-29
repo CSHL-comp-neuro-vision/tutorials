@@ -75,6 +75,7 @@ Much has been learned about vision by studying the visual signals and visual pro
 
 ## Python tutorials include introductions to:
 
+* Basics of programming in Python (set of ~6 notebook-based tutorials)
 * Machine learning (SVM)
 * FFT
 * Filtering timeseries
