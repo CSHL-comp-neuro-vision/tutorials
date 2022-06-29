@@ -77,7 +77,7 @@ Much has been learned about vision by studying the visual signals and visual pro
 
 * Machine learning (SVM)
 * FFT
-* Signal filtering (low/high pass filtering)
+* Filtering timeseries
 * Mutual Information
 
 All python tutorials are standalone jupyter notebooks (.ipynb files, which can also be uploaded and run using google colab if you don't have an install on your machine). 
