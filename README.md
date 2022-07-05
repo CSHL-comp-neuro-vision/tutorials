@@ -6,9 +6,15 @@ These tutorials have been generously donated by various course participants and 
 
 ## Programming language
 
-Currently, the vast majority of these tutorials are in Matlab, but there are some Python tutorials in the `Python` folder. See the bottom of this page for a summary. 
+We split up the tutorials based on whether they were written in python or matlab. We are slowly porting everything to python, so we'd encourage you to use those versions if they are available. If you are new to python, there is a folder named `IntroPythonTutorials` that you can check out. This folder contains a set of jupyter notebooks (but can also be run in google colab) and they are intended to be worked through in a sequence indicated by the numbering in the notebook names.  That said, many tutorials are only available in matlab at the moment. 
 
 ## Where do I start?
+
+### GitHub Desktop
+
+If you are new to git then using [GitHub desktop](https://desktop.github.com/) is an easy way to clone this repo so you can run the files on your machine. If you don't want to mess with github, you can download a zipped folder from this site and then place the tutorial files anywhere on your machine. Do one of these things first so that you have the files locally so you can run the code.  
+
+### Matlab
 
 Get your dependencies in order: Some tutorials have shared dependencies, so it is easiest to just go ahead and add the “dependencies_shared” folder to your path, with all its subfolders. To do this, you can navigate to the top level tutorials folder and enter this into your command prompt:
 
@@ -16,6 +22,11 @@ Get your dependencies in order: Some tutorials have shared dependencies, so it i
 
 Other tutorial-specific dependencies are included in the folder with each tutorial and are loaded by each tutorial script.
 
+### Python
+
+You can install python and jupyter (and a bunch of other stuff) locally on your machine using [anaconda](https://www.anaconda.com/). This is pretty straightforward usually, but if you run into problems, you can also run the `.ipynb` files in google colab on a virtual machine (everyone with a google account should have access to google colab). 
+
+Once you've got some method in place for opening the notebooks, you can open the notebooks and run the code! If you are running locally, then open a command window, navigate to the folder with the tutorials, and type `jupyter notebook` at the command line. If you are running google colab, just do file menu-open and select the notebook you want to run. 
 
 ## Covering some fundamentals
 
@@ -83,17 +94,3 @@ Much has been learned about vision by studying the visual signals and visual pro
 
 All python tutorials are standalone jupyter notebooks (.ipynb files, which can also be uploaded and run using google colab if you don't have an install on your machine). 
 
-## TODO: 
-
-Organization: Not convinced this mixture of shared/tutorial-specific dependencies makes sense, but that's what I started with. If we stick with this organization, need to review the comments at the top of each script and make sure it matches the current actual dependencies
-
-Tutorials currently giving errors in Matlab 2020:
-* pcasvdTutorial
-* FourierTutorial
-* pyramidTutorial
-* stochasticProcessesTutorial
-* fMRI_Classification_Tutorial
-* choiceProbabiltyTutorial
-* Psycho_Tutorial_III_Bootstrapping
-
-GLM Tutorial: Pillow needs to look at this and update the guide to describe what it is
