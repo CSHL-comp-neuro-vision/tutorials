@@ -45,8 +45,8 @@ trace = 0;
 tol = .0001;
 % quick = leastsq('qe2',q,[trace tol]);
 options = optimset;
-foo = fitfunw([trace,tol])
-quick = fminsearch('fitfunw',q,options,[trace tol]);
+% foo = fitfunw([trace,tol]);
+quick = fminsearch('fitfunw',q,options);
 if quick(1) <= 0
   % IT'S A bad fit.  Try another method.
   q(1) = .1;

@@ -1,6 +1,7 @@
 %% MRI Classification Tutorial ------------
 % 
 % by j freeman for CSHL, 2012
+% fixed errors - DB 2022 
 %
 addpath('dependencies_fMRI_Classification_Tutorial');
 %%-----------------------------------------
