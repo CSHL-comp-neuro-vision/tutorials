@@ -1,0 +1,1 @@
+function x = InitialXExtP(xp)% x = InitialXExtP(xp)%% Initial values for extended power function fit.%% If argument is passed, it is assumed to be the% parameters for best ordinary power function fit.x = [1 0 0]';if (nargin == 1)  x(2) = xp;end

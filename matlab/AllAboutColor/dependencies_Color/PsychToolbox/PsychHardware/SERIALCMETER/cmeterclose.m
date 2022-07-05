@@ -1,0 +1,1 @@
+function cmeterclose% cmeterclose%% Close serial port used to talk to colorimeter.  Reset% serial global.%% 4/4/00  dhb, jdt  Added protection against multiple closes.global infoCif (~isempty(infoC))   SERIAL('Close',infoC);   infoC = [];end

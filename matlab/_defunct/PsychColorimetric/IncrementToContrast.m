@@ -1,0 +1,1 @@
+function contrast = IncrementToContrast(linear,reference)% contrast = IncrementToContrast(linear,reference)%% Convert incremental linear excitation coordinates to contrast coordinates.%% 8/15/96  dhb, abp  Wrote it.[m,n] = size(linear);contrast = linear ./ reference(:,ones(1,n));

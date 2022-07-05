@@ -1,0 +1,1 @@
+% PsychToolbox:PsychScripts.%% help PsychToolbox % For an overview, triple-click me & hit enter.%%   ShowTiff            - Show a tiff file, calibrated.% Copyright (c) 1996-8 by David Brainard & Denis Pelli

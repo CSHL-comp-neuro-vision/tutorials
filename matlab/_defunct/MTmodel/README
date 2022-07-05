@@ -1,0 +1,79 @@
+___________________________________________________________________________
+DECRIPTION
+
+This package contains a MatLab implementation of a model for cortical
+neurons in visual area MT, as described in detail in the references
+given at the bottom of this document.  The model takes as input a
+discretized visual stimulus sequence (movie), and computes firing rate
+responses of two successive neural populations, corresponding to
+direction-selective complex cells in visual area V1, and
+"pattern-selective" neurons in area MT.  Further information, as well
+the most recent versions of the code, are available at
+
+    http://www.cns.nyu.edu/~lcv/MT-model.html
+
+Changes/updates to the software are documented in the ChangeLog file.
+
+Authors:  Timothy Saint and Eero P. Simoncelli
+___________________________________________________________________________
+INSTALLATION
+
+1) Download and unpack the folder containing the code.  You can put
+   the folder anywhere on your system, but we'll assume it's in a
+   folder/directory named "MTmodel".
+
+2) Compile the C code in the mex subfolder.  You should be able to do this 
+   by executing "shCompileMex" from within matlab, after setting your path 
+   to include the MTmodel folder (see step 0 of next section).
+
+___________________________________________________________________________
+USING THE SOFTWARE
+
+0) Start matlab, and put the MTmodel folder in your path:
+
+   addpath(genpath('PATHNAME-OF-MTmodel'));
+
+1) Start by going through the shTutorial1.m file in the "tut"
+   folder.  This will show you how to compute responses of various
+   stages of the model to any stimulus, and how to generate tuning
+   curves.
+
+2) Over time, we will be releasing extensions to the model, as well as 
+   addition demonstrations and tutorials.  Check back at
+        http://www.cns.nyu.edu/~lcv/MT-model.html
+   for current status.
+
+___________________________________________________________________________
+REFERENCES
+
+E P Simoncelli and D J Heeger.  A Model of Neuronal Responses in
+  Visual Area MT.  Vision Research, 38(5):743-761, March 1998.     
+  [Full journal article, with model details]
+  http://www.cns.nyu.edu/~eero/ABSTRACTS/simoncelli96-abstract.html
+
+E P Simoncelli, W D Bair, J R Cavanaugh, and J A Movshon. Testing and
+  Refining a Computational Model of Neural Responses in Area MT.
+  ARVO, 1996.
+  [Conference presentation and abstract on testing predictions of the 
+   model regarding bimodality of grating direction-tuning curves at
+   slow speeds.  Slides available online]
+  http://www.cns.nyu.edu/~eero/ABSTRACTS/ARVO-abstracts.html
+
+D J Heeger, E P Simoncelli, and J A Movshon.
+   Computational Models of Cortical Visual Processing.
+   Proc. National Academy of Science. 93:623-627. January, 1996.
+   [Brief description of V1 and MT models]
+   http://www.cns.nyu.edu/~eero/ABSTRACTS/pnas95-abstract.html
+
+E P Simoncelli and D J Heeger.
+   A velocity-representation model for MT cells. ARVO, 1994.
+   [Early conference presentation  and abstract.  Slides available online]
+   http://www.cns.nyu.edu/~eero/ABSTRACTS/ARVO-abstracts.html
+
+Eero P Simoncelli. Distributed Analysis and Representation of Visual Motion.
+   PhD thesis, Massachusetts Institute of Technology, Department of
+   Electrical Engineering and Computer Science, Cambridge MA, January 1993.
+   [Original version of the model, which did not include normalization 
+    of the MT stage]  
+   http://www.cis.upenn.edu/~eero/ABSTRACTS/simoncelli-phd-abstract.html
+

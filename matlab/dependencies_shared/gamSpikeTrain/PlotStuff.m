@@ -1,0 +1,1 @@
+function PlotStuff(row,intervals,nsteps)x = [-5:.1:50];subplot(3,2,row*2-1);[n,bins] = hist(intervals,x);n = n/(sum(n)*.1);bar(x(1:end-1),n(1:end-1));set(gca,'XLim',[min(x) max(x)]);set(gca,'Ylim',[0 .2])text(30,.15,[num2str(nsteps),' steps']);subplot(3,2,row*2);arrivals = cumsum(intervals);plot1ras(arrivals(arrivals<500))set(gca,'Xlim',[0 500]);

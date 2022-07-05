@@ -1,0 +1,67 @@
+%StimulusSpace.m
+
+
+n = 500;
+
+[x,y] = meshgrid(linspace(0,1,n));
+nt = 8;
+dList = 30:30:360;
+nd = length(dList);
+posList = linspace(0,1,nd+3);
+pos1 = .75*posList(2);
+posList = posList(3:end);
+g.r = .425/(nd+2);
+sf = [70,70];
+%g.sf = 30;  %cyclces/image
+g.c = 1/6;
+
+figure(1)
+clf
+
+
+clear M
+for i=1:nt
+    img = zeros(n);
+    g.ph = i*360/nt;
+    for d1 = 1:nd
+        for d2 = 1:nd
+            g.xc = posList(d1);
+            g.yc = posList(d2);
+
+            g.d = dList(d1);
+            g.sf = sf(1);
+            img = addGrating(img,g,x,y);
+            g.d = dList(d2);
+            g.sf = sf(2);
+            img = addGrating(img,g,x,y);
+        end
+
+        g.xc = posList(d1);
+        g.yc = pos1;
+        g.d = dList(d1);
+        g.sf = sf(1);
+        img = addGrating(img,g,x,y);
+
+        g.xc = pos1;
+        g.yc = posList(d1);
+        g.d = dList(d1);
+        g.sf = sf(2);
+        img = addGrating(img,g,x,y);
+
+    end
+
+
+
+    image((img+1)*32);
+    colormap(gray);
+    axis equal
+    axis 
+    set(gca,'YDir','normal');
+    M(i) = getframe;
+end
+
+
+%M = repmat(M,1,10);
+
+movie2avi(M,'StimulusSpace');
+%movie(M,40);

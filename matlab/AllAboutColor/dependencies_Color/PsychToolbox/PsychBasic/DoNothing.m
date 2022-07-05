@@ -1,0 +1,1 @@
+function [empty1,etc]=DoNothing([arg1],[etc])% DoNothing is a dummy MEX routine used to measure MATLAB's overhead% in calling MEX functions. Input arguments are ignored. DoNothing% returns an empty matrix for each explicitly provided output argument.% 8/17/97 dgp Wrote it.

@@ -1,0 +1,1 @@
+function[y] = OPN(x)% used for the conjugate AND VERGENCE tresholds.% the input (CME, VME) is compared with the dead zone (dz) parameter% if Motor Error (input) < Dead Zone (dz), output is 0% define parameter for deadzonedz=0.5;if x>=dz	y=1;elseif x<dz	y=0;end
