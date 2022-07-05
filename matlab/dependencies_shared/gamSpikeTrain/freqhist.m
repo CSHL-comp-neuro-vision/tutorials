@@ -1,0 +1,1 @@
+function [h,hist_xvals,freq]=freqhist(x,varargin)% frequency histogram (works just like hist, but handles nans and% normalizes. Returns handle, histo x values and freq values.% 6/16/98 mns wrote itx0 = x(isfinite(x));[n hist_xvals] = hist(x0,varargin{:});freq = n / sum(n);h = bar(hist_xvals,freq);set(gca,'TickDir','out','FontSize',14,'Box','off');ylabel('Frequency')

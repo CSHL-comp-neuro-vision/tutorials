@@ -1,0 +1,1 @@
+function fit = SinglesDist(beta, x)global NumResponses NoiseSDxinc = x(2) - x(1);fit = x - beta(2);fit = NumResponses .* xinc .* exp(-fit .* fit ./ (2 * (NoiseSD^2 + beta(1)^2))) / (2 * 3.14159 * (NoiseSD^2 + beta(1)^2))^(0.5);

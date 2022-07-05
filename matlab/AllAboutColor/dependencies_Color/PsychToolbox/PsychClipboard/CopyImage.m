@@ -1,0 +1,1 @@
+function CopyImage% CopyImage(image)% % Copy the matrix to the clipboard in PICT% format.  Use this to pass image data from MATLAB to% other programs.  Image data should be scaled between% 0 and 1.%% Also see PasteImage and SCREEN 'SaveAsEps'.% 8/19/94		dhb		Link in new pixmap handling code.

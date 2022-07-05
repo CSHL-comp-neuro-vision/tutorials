@@ -1,0 +1,1 @@
+function Shuffled =  ShuffleList(Original)Shuffled(1:length(Original)) = 0;TempList = Original;for cnt=1:length(Original)	pos = round(unifrnd(0,length(TempList)-cnt+1) + 0.5);	Shuffled(cnt) = TempList(pos);	for i=pos:length(TempList)-1		TempList(i) = TempList(i+1);	endend

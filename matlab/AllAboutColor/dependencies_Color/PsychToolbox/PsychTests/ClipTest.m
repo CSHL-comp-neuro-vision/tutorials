@@ -1,0 +1,1 @@
+% ClipTest%% Test clipboard text routines.%% 7/27/97  dhb  Wrote it.aMatrix = [1 2 3 ; 4 5 6];CopyText(aMatrix);bMatrix = PasteText;fprintf('Max error between copy and paste: %g\n',abs(max(max(aMatrix-bMatrix))));

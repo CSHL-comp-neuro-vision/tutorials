@@ -1,0 +1,40 @@
+%StimulusSpace.m
+
+
+n = 500;
+
+[x,y] = meshgrid(linspace(0,1,n));
+nt = 8;
+dList = 30:30:360;
+nd = length(dList);
+posList = linspace(0,1,nd+3);
+pos1 = posList(2)/2;
+posList = posList(3:end)+posList(2)/2;
+g.r = .45/(nd+2);
+g.sf = 30;  %cyclces/image
+g.c = 1/6;
+
+figure(1)
+clf
+
+d1 = 2*pi*x;
+
+r1 = x.*cos(d1) + y.*sin(d1);
+
+
+
+clear M
+for i=1:nt
+    
+        img = addGrating(img,g,x,y);
+
+    end
+
+
+
+    showImage(img);
+    set(gca,'YDir','normal');
+    M(i) = getframe;
+end
+
+movie(M,40);

@@ -1,0 +1,1 @@
+function logL = gamlik1(params, p, q, r) %  GAMLIK1 is a helper function. It is the same as GAMLIKE, except it% directly computes the gampdf without calling GAMPDF, also, saved some% error checking and size checking.a = params(1); b = params(2);logL = (1-a)*p + q/b + r*gammaln(a) + a*r*log(b);

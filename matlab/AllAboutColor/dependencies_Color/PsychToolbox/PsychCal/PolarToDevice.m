@@ -1,0 +1,1 @@
+function [device] = PolarToDevice(cal,pol)% [device] = PolarToDevice(cal,pol)%% Convert from polar color space coordinates to linear device% coordinates.%% This depends on the standard calibration globals.%% 9/26/93    dhb   Added cal argument.% 2/6/94     jms   Changed 'polar' to 'pol'linear = PolarToLinear(cal,pol);device = LinearToDevice(cal,linear);

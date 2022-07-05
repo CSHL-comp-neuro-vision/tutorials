@@ -1,0 +1,1 @@
+function [linear] = SettingsToLinear(cal,settings)% [linear] = SettingsToLinear(cal,settings)%% Convert from device setting coordinates to% linear color space coordinates.%% 9/26/93    dhb   Added cal argument.device = SettingsToDevice(cal,settings);linear = DeviceToLinear(cal,device);

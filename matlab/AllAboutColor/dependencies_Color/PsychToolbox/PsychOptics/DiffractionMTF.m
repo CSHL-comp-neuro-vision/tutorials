@@ -1,0 +1,1 @@
+function mtf = DiffractionMTF(s,pupil,wlnm)% mtf = DiffractionMTF(s,pupil,wlnm)%% Compute the diffraction limited MTF% for incoherent light.%% 	pupil size in mm% 	wavelength in nm%% 7/11/94		dhb		Wrote it.s0 = ComputeDiffLimit(pupil,wlnm);mtf = GoodmanDiffrac(s,s0);

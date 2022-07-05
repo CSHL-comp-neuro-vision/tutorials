@@ -1,0 +1,5 @@
+To install:
+
+In matlab, change into the matlabPyrTools/scripts/ directory, and run:
+
+pyrMakeMex

@@ -1,0 +1,1 @@
+function t=QuestFit(q)% t=QuestFit(q)% Estimate all the parameters of a best-fitting Weibull function.% See QuestDemo, QuestUpdate, QuestQuantile, QuestMean, QuestMode,% QuestSd, and QuestSimulate.%% Denis Pelli, 4/12/99% 4/12/99 dgp wrote it% Copyright (c) 1999 Denis Pelliif nargin~=1	error('Usage: t=QuestFit(q)')endt=q.tGuess+sum(q.pdf.*q.x);	% mean of our pdf

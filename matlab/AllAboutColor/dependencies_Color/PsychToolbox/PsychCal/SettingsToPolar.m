@@ -1,0 +1,1 @@
+function [pol] = SettingsToPolar(cData,settings)% [pol] = SettingsToPolar(cData,settings)%% Convert from device setting coordinates to% linear color space coordinates.%% INPUTS:%   settings -- device settings%% 9/26/93    dhb   Added calData argument.% 2/6/93     jms   Changed 'polar' to pollinear = SettingsToLinear(cData,settings);pol = LinearToPolar(cData,linear);

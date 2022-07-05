@@ -1,0 +1,1 @@
+% PsychToolbox:PsychContributed.%% help PsychToolbox % For an overview, triple-click me & hit enter.% help PsychDemos % For demos, triple-click me & hit enter.%%   MakeQTMovie         - Converts MATLAB plots, arrays, and sound into a QuickTime movie.%   ReadQTMovie         - Parses QuickTime movies, and JPEG images, and returns the sound.
