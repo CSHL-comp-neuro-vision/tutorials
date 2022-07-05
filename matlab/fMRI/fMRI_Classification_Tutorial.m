@@ -145,7 +145,7 @@ end
 % To estimate our prediction accuracy, we take a novel response that was
 % not used to fit the gaussians, and ask whether it's more likely under the
 % first or second gaussian
-fprintf('\r1-D classification... \r');
+fprintf('\r1-D classification... \n');
 for iV=1:3
     % for each voxel, compute the probability of a novel response from
     % condition 1 under the two different gaussians
@@ -155,9 +155,9 @@ for iV=1:3
     % because they are more numerically stable when probabilities become
     % small)
     if log(prob_1) > log(prob_2)
-        fprintf('Voxel %g says condition 1\r',iV);  
+        fprintf('Voxel %i says condition 1\n',iV);  
     else
-        fprintf('Voxel %g says condition 2\r',iV); 
+        fprintf('Voxel %i says condition 2\n',iV); 
     end
 end
 %%
@@ -165,7 +165,7 @@ end
 % response of two voxels. Fit a 2-D gaussian to each condition's response
 % distribution. As before, we'll predict the condition of a novel *pair* of
 % voxel responses by computing probability under the gaussians.
-fprintf('\r2-D classification... \r');
+fprintf('\n2-D classification... \n');
 voxPairs = [1 2; 1 3; 2 3];
 for iVp=1:3
     subplot(3,4,8+iVp);
@@ -179,19 +179,29 @@ for iVp=1:3
     cov_1 = cov(data_rvc(:,[vox1 vox2],1)); % condition 1 cov matrix
     mn_2 = mean(data_rvc(:,[vox1 vox2],2)); % condition 2 mean
     cov_2 = cov(data_rvc(:,[vox1 vox2],2)); % condition 2 cov matrix
-    drawEllipse(mn_1,cov_1,'b'); % plot the 1 SD contours of the gaussians
-    drawEllipse(mn_2,cov_2,'r');
+    % note from Dan (2022-07-04) see below
+    drawEllipse(mn_1,cov_1.*eye(2),'b'); % plot the 1 SD contours of the gaussians
+    drawEllipse(mn_2,cov_2.*eye(2),'r');
     xlabel(sprintf('Voxel %g response',voxPairs(iVp,1)));
     ylabel(sprintf('Voxel %g response',voxPairs(iVp,2)));
     box off;
     % compare the probability of a novel response from condition 1 under
     % the two different gaussians
-    prob_1 = mvnpdf(data_rvc(R,[vox1 vox2],1),mn_1,cov_1);
-    prob_2 = mvnpdf(data_rvc(R,[vox1 vox2],1),mn_2,cov_2);
+    
+    % note from Dan (2022-07-04) there is a bug in matlab 2014 that causes
+    % this to crash when you use the covariances cov_1 and cov_2, I've
+    % replaced these with the diagonals of the covariance matrix. This is
+    % basically like pretending that the data are uncorrelated and makes it
+    % much easier for matlab to deal with them, but it obviously ignroes
+    % important variance. This is actually equivalent to what has to be
+    % done below to use MATLAB's built-in "classify" function, because
+    % there isn't enough data to accurately estimate the covariance matrix.
+    prob_1 = mvnpdf(data_rvc(R,[vox1 vox2],1),mn_1,cov_1.*eye(2));
+    prob_2 = mvnpdf(data_rvc(R,[vox1 vox2],1),mn_2,cov_2.*eye(2));
     if log(prob_1) > log(prob_2)
-        fprintf('Voxel pair %g says condition 1\r',iVp);
+        fprintf('Voxel pair %s says condition 1\n',num2str(voxPairs(iVp,:)));
     else
-        fprintf('Voxel pair %g says condition 2\r',iVp);
+        fprintf('Voxel pair %s says condition 2\n',num2str(voxPairs(iVp,:)));
     end
 end
 % Try running the tutorial up to this point multiple times. In many cases,
@@ -280,6 +290,7 @@ title(sprintf('Accuracy is %g',acc));
 xlabel('True class');
 ylabel('Estimated class');
 
+% 
 % IMPORTANT NOTE: With the 'diagLinear' option, the classify function fits
 % an isotropic gaussian to each condition's response distribution -- an
 % isotropic gaussian can have a different variance in each direction, but
