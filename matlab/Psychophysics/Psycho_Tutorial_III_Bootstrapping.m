@@ -3,6 +3,7 @@
 % requires the folder 'Psychophysics' to be added to the path
 %
 % Written by G.M. Boynton, June 2012
+% Fixed by D. Birman, July 2022
 %% Using the bootstap to estimate variability in thresholds
 %
 % In this tutorial we'll apply a 'parametric' bootstrap on an example
@@ -152,11 +153,11 @@ end
 % Weibull function will only add to this variability.
 
 %%
-% We'll now run the parametric boostrap on many, many more repetitions.  A
-% common number is 2000, which takes about 5 minutes on my laptop. We'll
-% use the 'waitbar' to track the computer's progress.
+% We'll now run the parametric boostrap on many, many more repetitions.
 
-nReps = 200;  %2000 is a typical number - it takes about 5 minutes on my laptop.
+%2000 is a typical number - it takes about 5 minutes on my laptop.
+% DB 2022 - added a parfor, ~2 minutes
+nReps = 2000;
 %%
 % 'bootResults' will hold our 'fake' data set
 bootResults.intensity = results.intensity;
@@ -164,20 +165,15 @@ bootResults.intensity = results.intensity;
 % Zero out some parameters and start the loop.
 bootThresh =zeros(1,nReps);
 
-% set up the 'waitbar'
-h = waitbar(0,sprintf('Bootstrapping %d fits',nReps));
-for i=1:nReps
+parfor i=1:nReps
     % generate the 'fake' responses using coin flip biased by 'prob'
-    bootResults.response = floor(rand(size(results.response))+prob);
+    localResults = bootResults;
+    localResults.response = floor(rand(size(results.response))+prob);
     % fit the 'fake' data with the Weibull - use pBest as initial values
-    [pBoot,logLikelihoodBest] = fit('fitPsychometricFunction',pBest,freeList,bootResults,'Weibull');
+    [pBoot,logLikelihoodBest] = fit('fitPsychometricFunction',pBest,freeList,localResults,'Weibull');
     % save the threshold for this iteration
     bootThresh(i) = pBoot.t;
-    % update the 'waitbar'
-    waitbar(i/nReps,h)
 end
-%remove the waitbar
-delete(h)
 
 %%
 % We now have a distribution of thresholds.  Let's take a look at this
@@ -225,6 +221,7 @@ set(gca,'XTick',[-nan,nan]);
 % (BCa) method.  I've implemeted this method for the parametric bootstrap
 % in the function 'bootstrapWeibullThreshold'.  Here's how to use it.
 
+% DB 2022 - modified to use parfor
 [CI,thresh] = bootstrapWeibullThreshold(results,pInit,nReps,CIrange);
 %%
 % Plot the data point with the corrected errorbar next to the old one.
@@ -243,7 +240,7 @@ set(gca,'XLim',[0.5,1.75]);
 % here, plus much more.  Download a version and try it on our example data
 % to see if you get the same results that we do.  The software can be found
 % at:
-% http://www.bootstrap-software.org/psignifit/
+% https://www.nip.uni-tuebingen.de/research/software/psignifit.html
 
 % 2) The central limit theorem predicts that the standard deviation the mean
 % shrinks in proportion to 1 over the square root of the number of samples.  
@@ -262,7 +259,7 @@ set(gca,'XLim',[0.5,1.75]);
 % find the same result.
 
 % 4) Another option for this 'parametric' bootstrap is to constrain the fits
-% to the resampled data to have the same slope as for pBest, the fit to the
+% to the resampled data to have the same slope as for pBest, then fit to the
 % original data.  This may be reasonable since we've already headed down
 % the 'parametric' path anyway.  It should also speed things up since
 % optimiztion routines get much slower with increasing numbers of free

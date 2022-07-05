@@ -33,21 +33,22 @@ bootResults.intensity = results.intensity;
 bootstrapStat=  zeros(1,nReps);
 
 % set up the 'waitbar'
-h = waitbar(0,sprintf('Step 1: Bootstrapping with %d fits',nReps));
+% h = waitbar(0,sprintf('Step 1: Bootstrapping with %d fits',nReps));
 
 % Loop through nReps times, calling 'fit' with a new parametrically sampled
 % data set
-for i=1:nReps
+parfor i=1:nReps
     %generate a 'fake' set of responses based on the binary process
-    bootResults.response = floor(rand(size(x))+prob);
+    localResults = bootResults;
+    localResults.response = floor(rand(size(x))+prob);
     %fit the 'fake' data set and store the threshold
-    [pBootBest,logLikelihoodBest] = fit('fitPsychometricFunction',pBest,freeList,bootResults,'Weibull');
+    [pBootBest,logLikelihoodBest] = fit('fitPsychometricFunction',pBest,freeList,localResults,'Weibull');
     bootstrapStat(i) = pBootBest.t;
         % update the 'waitbar'
-    waitbar(i/nReps,h)
+%     waitbar(i/nReps,h)
 end
 %remove the waitbar
-delete(h);
+% delete(h);
 
 %% Generate the 'bias-corrected and accelerated' parameters z0 and a
 
