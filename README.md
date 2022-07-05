@@ -6,7 +6,7 @@ These tutorials have been generously donated by various course participants and 
 
 ## Programming language
 
-We split up the tutorials based on whether they were written in python or matlab. We are slowly porting everything to python, so we'd encourage you to use those versions if they are available. If you are new to python, there is a folder named `IntroPythonTutorials` that you can check out. This folder contains a set of jupyter notebooks (but can also be run in google colab) and they are intended to be worked through in a sequence indicated by the numbering in the notebook names.  That said, many tutorials are only available in matlab at the moment. 
+We split up the tutorials based on whether they were written in python or matlab. We are slowly porting everything to python, so we'd encourage you to use those versions if they are available (although many tutorials are still only in matlab). If you are new to python, there is a folder named `IntroPythonTutorials` that you can check out. This folder contains a set of jupyter notebooks (but can also be run in google colab) and they are intended to be worked through in a sequence indicated by the numbering in the notebook names.
 
 ## Where do I start?
 
@@ -30,7 +30,7 @@ Once you've got some method in place for opening the notebooks, you can open the
 
 ## Covering some fundamentals
 
-Some of our tutorials cover quite general concepts that should be broadly useful. These may be a good place to start, even just as a refresh.
+Some of our tutorials cover quite general concepts that should be broadly useful. These may be a good place to start, even just as a refresh. This is not yet a complete summary of all the tutorials though, so poke around to see what interests you!
 
 ### Linear Algebra
 
@@ -38,7 +38,7 @@ Dive into these tutorials to learn why Gilbert Strang has called linear algebra 
 
 ### SignalProcessing
 
-The general principles of how to process and manipulate signals provide important foundations for understanding vision. This collection of signal processing tutorials is a great place to start. Check out the “FourierTutorial” for an introduction to the Fourier Transform (that is, learn how to take a function of time or space (or whatever) and express it as a function of frequency. Dig more into the time domain with “linSysTutorial” and then “Linear_1D_Filter_Tutorial,” which will take you through some applications of filtering signals in the time domain. The “samplingTutorial” will take you through signal sampling in multiple domains. You can move into higher dimensional signals by checking out “imageTutorial,” “imageFormationTutorial,” and “pyramidTutorial.” For a little something different, “ICA_Tutorial” will show you how to use independent components analysis to separate about multiple sources that are mixed together in measured signals.
+The general principles of how to process and manipulate signals provide important foundations for understanding vision. This collection of signal processing tutorials is a great place to start. Check out the “FourierTutorial” or the FFT tutorial in the python folder for an introduction to the Fourier Transform (that is, learn how to take a function of time or space (or whatever) and express it as a function of frequency. Dig more into the time domain with “linSysTutorial” and then “Linear_1D_Filter_Tutorial,” which will take you through some applications of filtering signals in the time domain. The “samplingTutorial” will take you through signal sampling in multiple domains. You can move into higher dimensional signals by checking out “imageTutorial,” “imageFormationTutorial,” and “pyramidTutorial.” For a little something different, “ICA_Tutorial” will show you how to use independent components analysis to separate about multiple sources that are mixed together in measured signals.
 
 ### Bayesian Estimation
 
@@ -83,14 +83,6 @@ This tutorial works through the 'normalization model of attention' based on the 
 ### Modeling Motion Processing
 
 Much has been learned about vision by studying the visual signals and visual processing associated with motion. Consider starting with “motionTutorial”: yhis tutorial presents some concepts for representing and analyzing visual motion, including motion energy and computer vision. Dig in more deeply to a model of how motion is processed in MT (Rust at al., 2006) in “RustMTModel.” For another take, “STCovTutorial” demonstrates how spike-triggered covariance can be used to recover functional models in white-noise experiments.
-
-## Python tutorials include introductions to:
-
-* Basics of programming in Python (set of ~6 notebook-based tutorials)
-* Machine learning (SVM)
-* FFT
-* Filtering timeseries
-* Mutual Information
 
 All python tutorials are standalone jupyter notebooks (.ipynb files, which can also be uploaded and run using google colab if you don't have an install on your machine). 
 
