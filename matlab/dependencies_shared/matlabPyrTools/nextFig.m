@@ -16,4 +16,7 @@ if (exist('skip') ~= 1)
   skip = 1;
 end
   
-figure(1+mod(gcf-1+skip,maxfigs));
+current_fig_num = get(gcf,'Number');
+figure(1+mod(current_fig_num-1+skip,maxfigs));
+
+%figure(1+mod(gcf-1+skip,maxfigs));

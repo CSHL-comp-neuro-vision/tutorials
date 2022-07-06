@@ -78,4 +78,7 @@ end
 tmp = zeros(size(res));
 tmp(start(1):step(1):stop(1),start(2):step(2):stop(2)) = im;
 
+% display(size(tmp))
+% display(size(filt))
+% display(size(res))
 result = convolve2(tmp,filt,'wrap') + res;

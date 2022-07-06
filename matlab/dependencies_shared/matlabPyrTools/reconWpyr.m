@@ -82,6 +82,10 @@ else
 	stag = 1;
 end
 
+% EC 7/2022: staggered appears to no longer be needed for conv2 and breaks
+% it, so defaulting the staggering to 1
+stag = 1;
+
 %% Compute size of result image: assumes critical sampling (boundaries correct)
 res_sz = ind(1,:);
 if (res_sz(1) == 1)
@@ -102,6 +106,7 @@ end
 if any(levs > 1)  
 
   if (size(ind,1) > loind)
+
     nres = reconWpyr( pyr(1+sum(prod(ind(1:loind-1,:)')):size(pyr,1)), ...
 	ind(loind:size(ind,1),:), filt, edges, levs-1, bands);
   else
@@ -136,11 +141,13 @@ if any(levs == 1)
       upConv(ires,hfilt,edges,[2 1],[2 1],res_sz,res);  %destructively modify res
     end
     if any(bands == 2) % vertical
-      ires = upConv(pyrBand(pyr,ind,2),hfilt',edges,[1 2],[1 2],lres_sz);
+      %ires = upConv(pyrBand(pyr,ind,2),hfilt',edges,[1 2],[1 2],lres_sz);
+      ires = upConv(pyrBand(pyr,ind,2),hfilt',edges,[1 2],[1 stag],lres_sz);
       upConv(ires,filt,edges,[2 1],[stag 1],res_sz,res);  %destructively modify res
     end
     if any(bands == 3) % diagonal
-      ires =  upConv(pyrBand(pyr,ind,3),hfilt',edges,[1 2],[1 2],hres_sz);
+      %ires =  upConv(pyrBand(pyr,ind,3),hfilt',edges,[1 2],[1 2],hres_sz);
+      ires =  upConv(pyrBand(pyr,ind,3),hfilt',edges,[1 2],[1 stag],hres_sz);
       upConv(ires,hfilt,edges,[2 1],[2 1],res_sz,res);  %destructively modify res
     end
   end
