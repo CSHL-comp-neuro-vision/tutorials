@@ -6,7 +6,7 @@ These tutorials have been generously donated by various course participants and 
 
 ## Programming language
 
-We split up the tutorials based on whether they were written in python or matlab. We are slowly porting everything to python, so we'd encourage you to use those versions if they are available (although many tutorials are still only in matlab). If you are new to python, there is a folder named `IntroPythonTutorials` that you can check out. This folder contains a set of jupyter notebooks (but can also be run in google colab) and they are intended to be worked through in a sequence indicated by the numbering in the notebook names.
+We split up the tutorials based on whether they were written in python or matlab. We are porting everything to python, so we'd encourage you to use those versions if they are available. If you are new to python, there is a folder named `IntroPythonTutorials` that you can check out. This folder contains a set of jupyter notebooks (but can also be run in google colab) and they are intended to be worked through in a sequence indicated by the numbering in the notebook names.
 
 ## Where do I start?
 
@@ -30,7 +30,7 @@ Once you've got some method in place for opening the notebooks, you can open the
 
 ## Covering some fundamentals
 
-Some of our tutorials cover quite general concepts that should be broadly useful. These may be a good place to start, even just as a refresh. This is not yet a complete summary of all the tutorials though, so poke around to see what interests you!
+Some of our tutorials cover quite general concepts that should be broadly useful. These may be a good place to start, even just as a refresher. This is not yet a complete summary of all the tutorials though, so poke around to see what interests you!
 
 ### Linear Algebra
 
@@ -65,8 +65,6 @@ Light detection is an awfully important part of vision. The “PhotonDetectionTu
 ### Choice Probability
 
 This tutorial deals with the relationship between single neuron activity and the behavioral choices that we (or monkeys) make in psychophysics. It incorporates topics from signal detection theory and motion processing. If you’ve covered these topics, this tutorial should provide you with some good pay off because it shows how signal detection theory gives us something to measure in neurons that will ultimately constrain theories of neural coding.
-
-### Generalized Linear Model (GLM) (coming soon)
 
 ### Psychophysics
 
