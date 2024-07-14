@@ -1,0 +1,1 @@
+function d = r2d(r)% R2D% d = r2d(r) converts radians to degrees%% see also: D2R, PIX2DEG, DEG2PIX%% Lawrence K. Cormack% 3/31/2000  lkc Wrote it.% 6/20/2002 lkc Cosmetic.d = r * (180/pi);
