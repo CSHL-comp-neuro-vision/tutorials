@@ -56,6 +56,10 @@ Here we have an assortment of tutorials that consider the properties and process
 
 Functional MRI (fMRI) measures changes in blood flow and oxygenation associated with the underlying neuronal response. Here we have two tutorials on fMRI. Curious about event-related fMRI study designs and deconvolution-based analyses? “ER_fMRI_Tutorial” is a great place to start. You can build on what you learned in that tutorial by trying out “fMRI_Classification_Tutorial,” which demonstrates how to run a classification analysies on multivariate fMRI data. Bonus: the techniques described in this tutorial can be applied nearly identically to populations of neural responses.
 
+### Or continuous time RNNs
+
+There is a simple pytorch tutorial that goes over the basic data structure and set up of ANNs written in pytorch, along with more advanced continuous time RNN tutorials that feature both vanilla and more biologically plausible recurrent networks. It is easy to follow a provided template (class) to build your own tasks to train the models, and you can dissect them to see what happens to different cell types and assumptions about connectivity.   
+
 ## What about putting it all together?
 
 ### Modeling Light Detection
