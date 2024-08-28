@@ -194,15 +194,8 @@ class HLayer(torch.nn.Module):
             w = self.weight
 
         # compute output for each trial in the current batch
-        out = torch.matmul(r_t,w.T)
+        out = torch.matmul(r_t,w.T) + self.bias
         
-        # batch_size = r_t.shape[0]
-        # out = torch.zeros((batch_size, r_t.shape[1]))
-        
-        # # loop over trials in batch
-        # for b in range(batch_size):
-        #     out[b,:] = torch.matmul(r_t[b,:], w.T) + self.bias
-
         # return...
         return out
     

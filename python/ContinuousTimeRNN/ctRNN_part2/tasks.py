@@ -361,7 +361,7 @@ class ctTASKS:
         
             # compute mean of model output on each trial in last batch over 
             # last timepoints in each trial
-            mean_out = np.mean(np.squeeze(outputs.detach().numpy())[self.stim_on+self.stim_dur:,:],axis=0)
+            mean_out = np.mean(np.squeeze(outputs.cpu().detach().numpy())[self.stim_on+self.stim_dur:,:],axis=0)
             
             # if output was above threshold, then model guessed 'go' trial
             mean_out[mean_out>self.acc_amp_thresh[0]] = 1
@@ -370,7 +370,7 @@ class ctTASKS:
             mean_out[mean_out<self.acc_amp_thresh[1]] = 0
             
             # compute max of target to see if each trial was actually go (1) or nogo (0) 
-            mean_targ = np.max(targets.detach().numpy(),axis=0)    
+            mean_targ = np.max(targets.cpu().detach().numpy(),axis=0)    
         
             # compute mean acc over all trials in the last batch
             acc = np.mean(mean_out == mean_targ)
