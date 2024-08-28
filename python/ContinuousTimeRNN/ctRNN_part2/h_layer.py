@@ -18,8 +18,7 @@ class HLayer(torch.nn.Module):
     
     def __init__(self, rnn_settings):
         """
-        In the constructor we instantiate four parameters and assign them as
-        member parameters.
+        Init layer params from rnn_settings dictionary
         """
         super().__init__()
        
