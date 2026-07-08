@@ -6,7 +6,7 @@ Created on Sun Jun 8 09:20:16 2024
 @author: john serences (jserences@ucsd.edu)
 
 Class to define tasks for training/evaluting continuous time RNN
-go/no-go, delayed match to sample, and mante tasks adapted from Kim,Li,Sejnowski 2019 PNAS 
+go/no-go, delayed match to sample
 should be easy to make your own following the same general format
 """
 
@@ -57,20 +57,6 @@ class ctTASKS:
             self.stim_on = settings.get('stim_on')
             self.stim_dur = settings.get('stim_dur')
             self.delay = settings.get('delay')  
-            self.n_trials = settings.get('n_trials')  
-            self.acc_amp_thresh = settings.get('acc_amp_thresh')
-        
-        elif self.task == 'mante':
-            # expected param list for this task
-            exp_p = ['T', 'stim_on', 'stim_dur','n_trials','acc_amp_thresh']
-            
-            # check for and assign task-relevant params
-            self.param_check(settings,exp_p)
-            
-            # if passes check, assign
-            self.T = settings.get('T')
-            self.stim_on = settings.get('stim_on')
-            self.stim_dur = settings.get('stim_dur')
             self.n_trials = settings.get('n_trials')  
             self.acc_amp_thresh = settings.get('acc_amp_thresh')
 
@@ -191,67 +177,6 @@ class ctTASKS:
         #return torch.from_numpy(u).type(torch.float), tri_type
         return u, tri_type
 
-    def stim_mante(self):
-        """
-        Generate the input stimulus matrix for the
-        mante task (i.e. response depends on context)
-    
-        INPUT
-            settings: dict containing the following keys
-                T: duration of a single trial (in steps)
-                stim_on: stimulus starting time (in steps)
-                stim_dur: stimulus duration (in steps)
-
-        OUTPUT
-            u: T x n_trials x 4 stimulus matrix (first 2 inputs for motion/color and the second
-            2 rows for context), type torch.Tensor (float). 
-            tri_type: either +1 or -1
-        """
-        # alloc storage for stim time series 'u' and trial type
-        # will use the trial labels to generate 'target' outputs
-        # for model training in fucntion below...
-        u = torch.zeros((self.T,self.n_trials,4)) 
-        tri_type = np.full(self.n_trials, torch.nan)
-        
-        # Mante task
-        # generate all trials (the full batch of inputs)
-        for nt in range(self.n_trials): 
-            # Color/motion sensory inputs
-
-            u_lab = torch.zeros((2, 1))
-            if torch.rand(1) <= 0.50:
-                u[self.stim_on:self.stim_on+self.stim_dur,nt,0] = torch.randn(self.stim_dur) + 0.5
-                u_lab[0, 0] = 1
-            else:
-                u[self.stim_on:self.stim_on+self.stim_dur,nt,0] = torch.randn(self.stim_dur) - 0.5
-                u_lab[0, 0] = -1
-        
-            if torch.rand(1) <= 0.50:
-                u[self.stim_on:self.stim_on+self.stim_dur,nt,1] = torch.randn(self.stim_dur) + 0.5
-                u_lab[1, 0] = 1
-            else:
-                u[self.stim_on:self.stim_on+self.stim_dur,nt,1] = torch.randn(self.stim_dur) - 0.5
-                u_lab[1, 0] = -1
-        
-            # Context input
-            if torch.rand(1) <= 0.50:
-                u[:,nt,2] = 1
-        
-                if u_lab[0, 0] == 1:
-                    tri_type[nt] = 1
-                elif u_lab[0, 0] == -1:
-                    tri_type[nt] = -1
-            else:
-                u[:,nt,3] = 1
-        
-                if u_lab[1, 0] == 1:
-                    tri_type[nt] = 1
-                elif u_lab[1, 0] == -1:
-                    tri_type[nt] = -1
-    
-        #return torch.from_numpy(u).type(torch.float), tri_type
-        return u, tri_type
-
     
     #---------------------------------------------------------------
     # target signal for go-nogo
@@ -317,36 +242,6 @@ class ctTASKS:
                 
             elif tri_type[nt] == 0:
                 targs[10+task_end_T:10+task_end_T+100,nt] = -1
-    
-        #return torch.from_numpy(targs).type(torch.float)
-        return targs
-
-    #---------------------------------------------------------------
-    # target signal for mate
-    #---------------------------------------------------------------   
-    def target_mante(self, tri_type):
-        """
-        Method to generate a continuous target signal (z) 
-        for the MANTE task
-    
-        INPUT
-            settings: dict containing the following keys
-                T: duration of a single trial (in steps)
-                stim_on: stimulus starting time (in steps)
-                stim_dur: stimulus duration (in steps)
-                taus: time-constants (in steps)
-                DeltaT: sampling rate
-            label: either +1 or -1
-        OUTPUT
-            z: 1xT target signal
-        """
-    
-        targs = torch.zeros((self.T, self.n_trials))
-        for nt in range(self.n_trials):
-            if tri_type[nt] == 1:
-                targs[self.stim_on+self.stim_dur:,nt] = 1
-            else:
-                targs[self.stim_on+self.stim_dur:,nt] = -1
     
         #return torch.from_numpy(targs).type(torch.float)
         return targs
