@@ -24,9 +24,9 @@ Other tutorial-specific dependencies are included in the folder with each tutori
 
 ### Python
 
-You can install python and jupyter (and a bunch of other stuff) locally on your machine using [anaconda](https://www.anaconda.com/). This is pretty straightforward usually, but if you run into problems, you can also run the `.ipynb` files in google colab on a virtual machine (everyone with a google account should have access to google colab). 
+Installation instructions [here](https://johnserences.github.io/python_for_psych_neuro.github.io/setup/). If you are just getting started in Python, [here](https://johnserences.github.io/python_for_psych_neuro.github.io/python-crash-course/) is a quick start guide and in the `content` tab on the same page you'll find a set of tutorials going into more detail. 
 
-Once you've got some method in place for opening the notebooks, you can open the notebooks and run the code! If you are running locally, then open a command window, navigate to the folder with the tutorials, and type `jupyter notebook` at the command line. If you are running google colab, just do file menu-open and select the notebook you want to run. 
+Once you've got some method in place for opening the notebooks, you can open the notebooks and run the code! If you are running locally, then open a command window, navigate to the folder with the tutorials, and type `jupyter notebook` (or `jupyter lab`) at the command line. If you are running google colab, just do file menu-open and select the notebook you want to run. 
 
 ## Covering some fundamentals
 
